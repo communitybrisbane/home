@@ -34,8 +34,8 @@
                 </nav>
                 
                 <!-- 言語切り替えボタン -->
-                <button id="translate-button" class="bg-white text-gray-800 border border-gray-800 px-6 py-2 rounded-full hover:bg-black hover:text-white hover:border-black transition-all duration-300 flex items-center space-x-2 font-medium shadow-md hover:shadow-lg">
-                    <i class="fas fa-language text-lg"></i>
+                <button id="translate-button" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white border-0 px-4 py-2 rounded-full hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex items-center space-x-2 font-medium shadow-lg hover:shadow-xl transform hover:scale-105">
+                    <i class="fas fa-globe text-lg"></i>
                     <span class="translate-text">japanese</span>
                     <i class="fas fa-chevron-down text-sm ml-1"></i>
                 </button>
@@ -48,18 +48,11 @@
         </div>
         
         <!-- モバイルメニュー -->
-        <div id="mobile-menu" class="hidden md:hidden w-full bg-white/95 backdrop-blur-sm border-t border-gray-100">
-            <div class="container mx-auto px-6 py-4 space-y-3">
+        <div id="mobile-menu" class="hidden md:hidden w-full h-full">
+            <div class="mobile-menu-content">
                 <a href="#events" class="mobile-nav-link" data-en="Events" data-ja="Events">Events</a>
                 <a href="#progress" class="mobile-nav-link" data-en="Progress" data-ja="Progress">Progress</a>
                 <a href="#recruit" class="mobile-nav-link" data-en="Contact" data-ja="Contact">Contact</a>
-                <div class="pt-3 border-t border-gray-100">
-                    <button id="mobile-translate-button" class="bg-white text-gray-800 border border-gray-800 px-6 py-3 rounded-full hover:bg-black hover:text-white hover:border-black transition-all duration-300 flex items-center justify-center space-x-2 font-medium shadow-md hover:shadow-lg w-full">
-                        <i class="fas fa-language text-lg"></i>
-                        <span class="translate-text">japanese</span>
-                        <i class="fas fa-chevron-down text-sm ml-1"></i>
-                    </button>
-                </div>
             </div>
         </div>
     </header>
@@ -85,27 +78,52 @@
         </section>
 
         <!-- CULTUREセクション -->
-        <section id="about" class="py-16 md:py-24">
+        <section id="about" class="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-gray-500 mb-2">CULTURE</h2>
-                <p class="text-base text-gray-600 mb-8" data-en="About Community_Brisbane" data-ja="Community_Brisbaneとは">About Community_Brisbane</p>
-                <div class="flex flex-col md:flex-row items-start md:space-x-8">
-                    <div class="md:w-1/2 culture-image-container relative">
-                        <!-- 画像のプレースホルダー -->
-                        <img src="images/culture-begin.jpg" alt="カルチャー画像1" class="w-full h-auto rounded-lg culture-image active">
-                        <img src="images/culrure-drink.jpeg" alt="カルチャー画像2" class="w-full h-auto rounded-lg culture-image absolute top-0 left-0">
-                        <img src="images/cluture-organizer.jpeg" alt="カルチャー画像3" class="w-full h-auto rounded-lg culture-image absolute top-0 left-0">
-                        <img src="images/culture-maturi.jpg" alt="カルチャー画像4" class="w-full h-auto rounded-lg culture-image absolute top-0 left-0">
-                        <img src="images/culture-sports.jpeg" alt="カルチャー画像5" class="w-full h-auto rounded-lg culture-image absolute top-0 left-0">
+                <div class="text-left mb-12">
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase text-gray-400 mb-4 tracking-wider">CULTURE</h2>
+                    <p class="text-lg sm:text-xl lg:text-2xl text-gray-500 font-medium mb-4" data-en="About Community_Brisbane" data-ja="Community_Brisbaneとは">About Community_Brisbane</p>
+                </div>
+                
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <!-- 左側：画像セクション -->
+                    <div class="lg:w-1/2 w-full">
+                        <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+                            <img src="images/culture-begin.jpg" alt="Community Brisbane Culture" class="w-full h-80 object-cover transform hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
                     </div>
-                    <div class="md:w-1/2 mt-8 md:mt-0">
-                        <img src="images/logo.png" alt="Community Brisbane Logo" class="h-48 w-auto mx-auto my-4 opacity-80 block">
-                        <h3 class="text-3xl font-bold" data-en="make your days count." data-ja="make your days count.">make your days count.</h3>
-                        <p class="mt-4 text-base text-gray-600">
-                            <span data-en="Community_Brisbane is a community that hosts international exchange events around Brisbane CBD." data-ja="Community_Brisbaneは、brisbaneCBD周辺にて国際交流イベントを開催するコミュニティです。">Community_Brisbane is a community that hosts international exchange events around Brisbane CBD.</span>
-                            <span data-en="We aim to make life in Brisbane fun, create opportunities to make new friends, and lower the barriers to overseas challenges." data-ja="brisbaneでの生活を楽しく、新しい友人を作るきっかけを創造し、海外での挑戦に対するハードルを下げることを目指しています。">We aim to make life in Brisbane fun, create opportunities to make new friends, and lower the barriers to overseas challenges.</span>
-                            <span data-en="We provide a place where everyone can easily interact." data-ja="私たちは、誰もが気軽に交流できる場を提供します。">We provide a place where everyone can easily interact.</span>
-                        </p>
+                    
+                    <!-- 右側：コンテンツセクション -->
+                    <div class="lg:w-1/2 w-full text-center lg:text-left">                    
+                        <!-- ロゴ -->
+                        <div class="mb-8 flex justify-center">
+                            <img src="images/logo.png" alt="Community Brisbane Logo" class="w-40 h-40 opacity-90 object-contain" style="width: 160px !important; height: 160px !important;">
+                        </div>
+                        
+                        <!-- メインメッセージ -->
+                        <h3 class="text-3xl font-bold text-gray-800 mb-6 leading-tight" data-en="make your days count." data-ja="make your days count.">
+                            make your days count.
+                        </h3>
+                        
+                        <!-- 説明文 -->
+                        <div class="space-y-4 text-gray-600 leading-relaxed">
+                            <p class="text-base sm:text-lg">
+                                <span data-en="Community_Brisbane is a community that hosts international exchange events around Brisbane CBD." data-ja="Community_Brisbaneは、brisbaneCBD周辺にて国際交流イベントを開催するコミュニティです。">
+                                    Community_Brisbane is a community that hosts international exchange events around Brisbane CBD.
+                                </span>
+                            </p>
+                            <p class="text-base sm:text-lg">
+                                <span data-en="We aim to make life in Brisbane fun, create opportunities to make new friends, and lower the barriers to overseas challenges." data-ja="brisbaneでの生活を楽しく、新しい友人を作るきっかけを創造し、海外での挑戦に対するハードルを下げることを目指しています。">
+                                    We aim to make life in Brisbane fun, create opportunities to make new friends, and lower the barriers to overseas challenges.
+                                </span>
+                            </p>
+                            <p class="text-base sm:text-lg">
+                                <span data-en="We provide a place where everyone can easily interact." data-ja="私たちは、誰もが気軽に交流できる場を提供します。">
+                                    We provide a place where everyone can easily interact.
+                                </span>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,8 +134,8 @@
             <div class="container mx-auto px-6">
                 <!-- セクションヘッダー -->
                 <div class="mb-16">
-                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">EVENTS</h2>
-                    <p class="text-base text-gray-600" data-en="Main Activities" data-ja="主な活動内容">Main Activities</p>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 mb-4">EVENTS</h2>
+                    <p class="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-4" data-en="Main Activities" data-ja="主な活動内容">Main Activities</p>
                 </div>
                 
                 <!-- イベント項目1: 国際交流（画像左・文章右） -->
@@ -175,8 +193,8 @@
         <!-- PROGRESSセクション -->
         <section id="progress" class="py-16 md:py-24">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-gray-500 mb-2">PROGRESS</h2>
-                <p class="text-base text-gray-600 mb-8" data-en="Our Journey So Far" data-ja="これまでの歩み">Our Journey So Far</p>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase text-gray-500 mb-2">PROGRESS</h2>
+                <p class="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-8" data-en="Our Journey So Far" data-ja="これまでの歩み">Our Journey So Far</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div>
                         <h3 class="text-lg font-bold" data-en="Establishment Date" data-ja="設立日">Establishment Date</h3>
@@ -203,12 +221,12 @@
             <img src="images/massage.JPG" alt="設立者のメッセージ画像" class="message-section-image">
             <div class="message-section-overlay"></div>
             <div class="container mx-auto px-4 relative z-10 text-left">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-gray-500 mb-2">MESSAGE</h2>
-                <p class="text-base text-gray-600 mb-8" data-en="Founder's Message" data-ja="設立者の想い">Founder's Message</p>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase text-gray-500 mb-2">MESSAGE</h2>
+                <p class="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-8" data-en="Founder's Message" data-ja="設立者の想い">Founder's Message</p>
                 <div class="md:w-1/2">
-                    <h3 class="text-2xl font-bold">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-6" data-en="Make your days in Brisbane more count." data-ja="ブリスベンでの日々を、もっと特別に。">
                         <span data-en="Make your days in Brisbane" data-ja="ブリスベンでの日々を、">Make your days in Brisbane</span><br>
-                        <span data-en="more special." data-ja="もっと特別に。">more special.</span>
+                        <span data-en="more count." data-ja="もっと特別に。">more count.</span>
                     </h3>
                     <p class="mt-4 text-base text-gray-600">
                         <span data-en="I started this community because I wanted to make many friends overseas and enjoy life to the fullest." data-ja="このコミュニティを始めたのは、私自身が海外で友達をたくさん作り、精一杯楽しみたい想いからです。">I started this community because I wanted to make many friends overseas and enjoy life to the fullest.</span>
@@ -228,11 +246,11 @@
                     <div class="relative overflow-hidden rounded-lg h-96">
                         <img src="images/team.jpg" alt="運営募集画像" class="absolute inset-0 w-full h-full object-cover z-0">
                         <div class="p-8 relative z-10 bg-white bg-opacity-80 h-full flex flex-col justify-center items-center text-center">
-                            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-gray-500 mb-2">RECRUIT</h2>
-                            <p class="text-base text-gray-600 mb-8" data-en="Team Management" data-ja="チーム運営">Team Management</p>                           
+                            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase text-gray-500 mb-2">RECRUIT</h2>
+                            <p class="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-8" data-en="Team Management" data-ja="チーム運営">Team Management</p>                           
                             <p class="mt-4 text-base text-gray-600">
-                                <span data-en="We are looking for members to help us grow the CB community together." data-ja="私たちと一緒にCBを盛り上げてくれる仲間を募集しています。">We are looking for members to help us grow the CB community together.</span><br>
-                                <span data-en="Would you like to be involved in event planning and management using your ideas?" data-ja="あなたのアイディアを活かし、イベントの企画や運営に携わりませんか？">Would you like to be involved in event planning and management using your ideas?</span><br>
+                                <span data-en="We are looking for members to help us grow the CB together." data-ja="私たちと一緒にCBを盛り上げてくれる仲間を募集しています。">We are looking for members to help us grow the CB together.</span><br>
+                                <span data-en="Would you like to be involved in event planning and management?" data-ja="あなたのアイディアを活かし、イベントの企画や運営に携わりませんか？">Would you like to be involved in event planning and management?</span><br>
                                 <span data-en="If you want to try something overseas, please DM us." data-ja="海外でなにか挑戦してみたい、その思いがあればぜひDMください。">If you want to try something overseas, please DM us.</span>
                             </p>
                             <a href="https://local-opossum-a14.notion.site/ebd/20a118fd4c9a8056be30e2382e9ee2d9" target="_blank" class="mt-8 inline-block bg-white text-gray-800 border border-gray-800 px-6 py-3 rounded-full hover:bg-gray-800 hover:text-white transition-colors duration-300" data-en="View Details →" data-ja="詳細を見る →">View Details →</a>
@@ -242,8 +260,8 @@
                     <div class="relative overflow-hidden rounded-lg h-96">
                         <img src="images/contact.JPEG" alt="コンタクト画像" class="absolute inset-0 w-full h-full object-cover z-0">
                         <div class="p-8 relative z-10 bg-white bg-opacity-80 h-full flex flex-col justify-center items-center text-center">
-                            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-gray-500 mb-2">CONTACT</h2>
-                            <p class="text-base text-gray-600 mb-8" data-en="Contact Us" data-ja="お問い合わせ">Contact Us</p>
+                            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase text-gray-500 mb-2">CONTACT</h2>
+                            <p class="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-8" data-en="Contact Us" data-ja="お問い合わせ">Contact Us</p>
                             <p class="mt-4 text-base text-gray-600">
                                 <span data-en="For questions, collaboration requests, sponsorships, etc.," data-ja="ご質問、コラボ依頼、スポンサーなどのご連絡は、">For questions, collaboration requests, sponsorships, etc.,</span><br>
                                 <span data-en="please contact us via Instagram DM." data-ja="InstagramのDMにて承っております。">please contact us via Instagram DM.</span><br>

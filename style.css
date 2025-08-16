@@ -78,19 +78,22 @@ body {
 }
 .culture-image-container .culture-image {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.8s ease-in-out;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: auto;
+    z-index: 0;
 }
 .culture-image-container .culture-image:first-child {
     position: relative;
+    z-index: 1;
 }
 .culture-image-container .culture-image.active {
-    opacity: 1;
-    z-index: 1;
+    opacity: 1 !important;
+    z-index: 2 !important;
+    position: relative !important;
 }
 
 /* 新しいメッセージセクションのスタイル */
@@ -420,4 +423,741 @@ header #menu-button:hover {
 .mobile-nav-link:hover {
     background-color: #000000 !important;
     color: #ffffff !important;
+} 
+
+/* スマホ版で両サイドの余白を完全に無しにする */
+@media (max-width: 768px) {
+    /* コンテナの余白を完全に削除 */
+    .container {
+        margin-left: 0 !important; /* 20% → 0 に変更 */
+        margin-right: 0 !important; /* 20% → 0 に変更 */
+        max-width: 100% !important; /* 60% → 100% に変更 */
+        padding-left: 16px !important; /* Tailwind px-4 の代わりに16px */
+        padding-right: 16px !important; /* Tailwind px-4 の代わりに16px */
+    }
+    
+    /* セクション全体の余白を完全に削除 */
+    section {
+        padding-left: 0 !important; /* 5% → 0 に変更 */
+        padding-right: 0 !important; /* 5% → 0 に変更 */
+    }
+    
+    /* 特定セクションの余白を完全に削除 */
+    #about, #events, #progress, .message-section-container, #recruit {
+        padding-left: 0 !important; /* 8% → 0 に変更 */
+        padding-right: 0 !important; /* 8% → 0 に変更 */
+    }
+    
+    /* スライドショーテキストの余白を完全に削除 */
+    .slideshow-text-content {
+        padding-left: 0 !important; /* 5% → 0 に変更 */
+        padding-right: 0 !important; /* 25% → 0 に変更 */
+    }
+    
+    /* スライドショーテキストボックスの位置調整 */
+    .slideshow-text-container {
+        left: 16px !important; /* 5% → 16px に変更 */
+        right: 16px !important; /* 20% → 16px に変更 */
+        max-width: calc(100% - 32px) !important; /* 20% → 画面幅-32px に変更 */
+    }
+    
+    /* EVENTSセクションの特殊な余白設定もリセット */
+    #events .flex.flex-col.md\:flex-row.items-start.md\:space-x-8:first-child .md\:w-1\/2.order-2.md\:order-1 {
+        margin-left: 0 !important; /* 15% → 0 に変更 */
+    }
+    
+    #events .flex.flex-col.md\:flex-row.items-start.md\:space-x-8:nth-child(3) {
+        margin-left: 0 !important; /* -20% → 0 に変更 */
+    }
+    
+    #events .flex.flex-col.md\:flex-row.items-start.md\:space-x-8:nth-child(3) .md\:w-1\/2.order-1.md\:order-1 {
+        margin-left: 0 !important; /* -20% → 0 に変更 */
+    }
+    
+    #events .flex.flex-col.md\:flex-row.items-start.md\:space-x-8:nth-child(3) .md\:w-1\/2.order-2.md\:order-2 {
+        margin-left: 0 !important; /* -20% → 0 に変更 */
+    }
+}
+
+/* スマホ版でメインの文字を小さくし、写真の説明を左下に移動して小さくする */
+@media (max-width: 768px) {
+    /* スライドショーオーバーレイを中央揃えに変更 */
+    .slideshow-overlay {
+        justify-content: center !important; /* flex-start → center に変更 */
+        align-items: center !important; /* flex-start → center に変更 */
+        text-align: center !important; /* left → center に変更 */
+        padding-top: 25vh !important; /* 20vh → 25vh に調整 */
+    }
+    
+    /* スライドショーテキストコンテンツを中央揃えに変更 */
+    .slideshow-text-content {
+        padding-left: 0 !important; /* 5% → 0 に変更 */
+        padding-right: 0 !important; /* 25% → 0 に変更 */
+        align-items: center !important; /* flex-start → center に変更 */
+        text-align: center !important; /* テキストを中央揃え */
+        width: 100% !important; /* 幅を100%に */
+    }
+    
+    /* メインの見出し「make your days count.」を小さくして中央揃え */
+    .slideshow-overlay h1 {
+        font-size: 2.5rem !important; /* デフォルトの5xl-7xl → 2.5rem に縮小 */
+        line-height: 1.1 !important;
+        margin-bottom: 0.5rem !important; /* 1rem → 0.5rem に縮小 */
+        text-align: center !important; /* 中央揃えを追加 */
+        width: 100% !important; /* 幅を100%に */
+    }
+    
+    /* サブテキストも小さくして中央揃え */
+    .slideshow-overlay p {
+        font-size: 1rem !important; /* デフォルトのlg-2xl → 1rem に縮小 */
+        line-height: 1.3 !important;
+        text-align: center !important; /* 中央揃えを追加 */
+        width: 100% !important; /* 幅を100%に */
+    }
+    
+    /* スライドショーテキストボックス（写真の説明）を完全に非表示にする */
+    .slideshow-text-container {
+        display: none !important; /* 完全に非表示 */
+    }
+}
+
+/* さらに小さいスマホ（480px以下）での調整 */
+@media (max-width: 480px) {
+    /* メインの見出しをさらに小さくして中央揃え */
+    .slideshow-overlay h1 {
+        font-size: 2rem !important; /* 2.5rem → 2rem にさらに縮小 */
+        text-align: center !important; /* 中央揃えを維持 */
+    }
+    
+    /* サブテキストをさらに小さくして中央揃え */
+    .slideshow-overlay p {
+        font-size: 0.875rem !important; /* 1rem → 0.875rem にさらに縮小 */
+        text-align: center !important; /* 中央揃えを維持 */
+    }
+    
+    /* スライドショーテキストボックスは既に非表示 */
+} 
+
+/* 翻訳ボタンのデザインを不採用にしてシンプルに */
+header #translate-button {
+    background-color: transparent !important; /* 背景を透明に */
+    color: #6b7280 !important; /* 文字色を薄いグレーに */
+    border: none !important; /* ボーダーを削除 */
+    box-shadow: none !important; /* シャドウを削除 */
+    padding: 0.5rem 1rem !important; /* パディングを調整 */
+    font-size: 0.875rem !important; /* 文字サイズを調整 */
+    font-weight: 400 !important; /* フォントウェイトを通常に */
+    transition: color 0.2s ease !important; /* 色の変化のみ */
+    min-width: auto !important; /* 最小幅を自動に */
+    height: auto !important; /* 高さを自動に */
+}
+
+/* 翻訳ボタンのホバー効果をシンプルに */
+header #translate-button:hover {
+    background-color: transparent !important; /* 背景は透明のまま */
+    color: #374151 !important; /* 文字色のみ濃く */
+    border: none !important; /* ボーダーなし */
+    transform: none !important; /* 変形なし */
+    box-shadow: none !important; /* シャドウなし */
+}
+
+/* 翻訳ボタン内のアイコンをシンプルに */
+header #translate-button i {
+    color: inherit !important; /* 親要素の色を継承 */
+    font-size: 0.875rem !important; /* アイコンサイズを調整 */
+}
+
+/* 翻訳ボタン内のテキストをシンプルに */
+header #translate-button .translate-text {
+    color: inherit !important; /* 親要素の色を継承 */
+    font-size: 0.875rem !important; /* テキストサイズを調整 */
+    font-weight: 400 !important; /* フォントウェイトを通常に */
+}
+
+/* 翻訳ボタン内の矢印アイコンをシンプルに */
+header #translate-button .fa-chevron-down {
+    color: inherit !important; /* 親要素の色を継承 */
+    font-size: 0.75rem !important; /* 矢印サイズを調整 */
+    margin-left: 0.25rem !important; /* 左マージンを調整 */
+}
+
+/* モバイル翻訳ボタンも同様にシンプルに */
+header #mobile-translate-button {
+    background-color: transparent !important; /* 背景を透明に */
+    color: #6b7280 !important; /* 文字色を薄いグレーに */
+    border: none !important; /* ボーダーを削除 */
+    box-shadow: none !important; /* シャドウを削除 */
+    padding: 0.5rem 1rem !important; /* パディングを調整 */
+    font-size: 0.875rem !important; /* 文字サイズを調整 */
+    font-weight: 400 !important; /* フォントウェイトを通常に */
+    transition: color 0.2s ease !important; /* 色の変化のみ */
+}
+
+/* モバイル翻訳ボタンのホバー効果もシンプルに */
+header #mobile-translate-button:hover {
+    background-color: transparent !important; /* 背景は透明のまま */
+    color: #374151 !important; /* 文字色のみ濃く */
+    border: none !important; /* ボーダーなし */
+    transform: none !important; /* 変形なし */
+    box-shadow: none !important; /* シャドウなし */
+}
+
+/* スマホ版のヘッダー改善 - 扉形式のモバイルメニュー */
+@media (max-width: 768px) {
+    /* ヘッダーの翻訳ボタンをさらにシンプルに */
+    header #translate-button {
+        padding: 0.375rem 0.75rem !important; /* 0.5rem 1rem → 0.375rem 0.75rem に縮小 */
+        font-size: 0.75rem !important; /* 0.875rem → 0.75rem に縮小 */
+        background-color: transparent !important; /* 背景は透明のまま */
+        border: none !important; /* ボーダーなし */
+        color: #6b7280 !important; /* 文字色を薄いグレーに */
+    }
+    
+    /* ヘッダーの翻訳ボタンのホバー効果をシンプルに */
+    header #translate-button:hover {
+        background-color: transparent !important; /* 背景は透明のまま */
+        color: #374151 !important; /* 文字色のみ濃く */
+        border: none !important; /* ボーダーなし */
+        transform: none !important; /* 変形なし */
+        box-shadow: none !important; /* シャドウなし */
+    }
+    
+    /* 翻訳ボタン内のアイコンを小さく */
+    header #translate-button i {
+        font-size: 0.75rem !important; /* 0.875rem → 0.75rem に縮小 */
+        color: inherit !important; /* 親要素の色を継承 */
+    }
+    
+    /* 翻訳ボタン内のテキストを小さく */
+    header #translate-button .translate-text {
+        font-size: 0.75rem !important; /* 0.875rem → 0.75rem に縮小 */
+        font-weight: 400 !important; /* フォントウェイトを通常に */
+        color: inherit !important; /* 親要素の色を継承 */
+    }
+    
+    /* 翻訳ボタン内の矢印アイコンを小さく */
+    header #translate-button .fa-chevron-down {
+        font-size: 0.625rem !important; /* 0.75rem → 0.625rem に縮小 */
+        margin-left: 0.25rem !important; /* 0.25rem のまま */
+        color: inherit !important; /* 親要素の色を継承 */
+    }
+    
+    /* デスクトップナビゲーションを非表示 */
+    header nav.hidden.md\:flex {
+        display: none !important;
+    }
+    
+    /* モバイルメニューボタンを完全に非表示 */
+    header #menu-button {
+        display: none !important; /* block → none に変更して完全に非表示 */
+    }
+    
+    /* 扉形式のモバイルメニューも非表示 */
+    header #mobile-menu {
+        display: none !important; /* モバイルメニューも非表示 */
+    }
+    
+    /* ヘッダーの高さを調整 */
+    header {
+        padding: 0.75rem 0 !important; /* py-4 → 0.75rem 0 に縮小 */
+    }
+    
+    /* ロゴとブランド名のサイズ調整 */
+    header .flex.items-center.space-x-3 img {
+        height: 2rem !important; /* h-10 → 2rem に縮小 */
+    }
+    
+    header .flex.items-center.space-x-3 a {
+        font-size: 1.125rem !important; /* text-xl → 1.125rem に縮小 */
+    }
+    
+    /* モバイル版でセクションヘッダーを非表示にする - イベントセクションは表示 */
+    #progress h2,
+    #recruit h2 {
+        display: none !important; /* Progress、Contactのヘッダーのみ非表示 */
+    }
+    
+    /* イベントセクションのヘッダーは表示 */
+    #events h2 {
+        display: block !important; /* イベントセクションのヘッダーを表示 */
+        font-size: 2rem !important; /* モバイル用にサイズ調整 */
+        text-align: center !important; /* 中央揃え */
+        margin-bottom: 1rem !important; /* 下マージンを調整 */
+    }
+    
+    /* モバイル版でセクションの説明文も非表示にする - イベントセクションは表示 */
+    #progress p:first-of-type,
+    #recruit p:first-of-type {
+        display: none !important; /* Progress、Contactの説明文のみ非表示 */
+    }
+    
+    /* イベントセクションの説明文は表示 */
+    #events p:first-of-type {
+        display: block !important; /* イベントセクションの説明文を表示 */
+        text-align: center !important; /* 中央揃え */
+        margin-bottom: 2rem !important; /* 下マージンを調整 */
+        font-size: 1rem !important; /* モバイル用にサイズ調整 */
+    }
+    
+    /* モバイル版でセクションの上部パディングを調整 */
+    #events,
+    #progress,
+    #recruit {
+        padding-top: 2rem !important; /* py-16 md:py-24 → 2rem に縮小 */
+        padding-bottom: 2rem !important; /* py-16 md:py-24 → 2rem に縮小 */
+    }
+    
+    /* イベントセクションのレイアウトを改善 */
+    #events .flex.flex-col.lg\:flex-row {
+        gap: 2rem !important; /* gap-12 → 2rem に縮小 */
+        margin-bottom: 3rem !important; /* mb-20 → 3rem に縮小 */
+    }
+    
+    /* イベントセクション内の画像を調整 */
+    #events .lg\:w-1\/2 img {
+        width: 100% !important;
+        height: 250px !important; /* h-80 → 250px に調整 */
+        object-fit: cover !important;
+        border-radius: 1rem !important; /* 角を丸く */
+    }
+    
+    /* イベントセクション内のテキストを調整 */
+    #events .lg\:w-1\/2 h3 {
+        font-size: 1.5rem !important; /* text-3xl → 1.5rem に調整 */
+        margin-bottom: 1rem !important; /* mb-6 → 1rem に調整 */
+        text-align: center !important; /* 中央揃え */
+    }
+    
+    #events .lg\:w-1\/2 p {
+        font-size: 0.875rem !important; /* text-base → 0.875rem に調整 */
+        line-height: 1.6 !important; /* 行間を調整 */
+        text-align: center !important; /* 中央揃え */
+    }
+    
+    /* イベントセクションの背景を調整 */
+    #events {
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%) !important; /* 背景色を調整 */
+    }
+}
+
+/* モバイル版のProgressセクションをシンプルに作り直し */
+@media (max-width: 768px) {
+    /* Progressセクション全体のスタイル */
+    #progress {
+        padding: 2rem 1rem !important; /* 上下左右のパディングを調整 */
+        background-color: #f8fafc !important; /* シンプルな薄いグレー背景 */
+        margin: 0 !important; /* マージンをリセット */
+    }
+    
+    /* Progressセクションのヘッダー */
+    #progress h2 {
+        display: block !important; /* ヘッダーを表示 */
+        font-size: 2rem !important; /* モバイル用にサイズ調整 */
+        font-weight: 600 !important; /* フォントウェイトを調整 */
+        text-align: center !important; /* 中央揃え */
+        margin-bottom: 1rem !important; /* 下マージンを調整 */
+        color: #374151 !important; /* 文字色を調整 */
+        text-transform: uppercase !important; /* 大文字に */
+    }
+    
+    /* Progressセクションの説明文 */
+    #progress p:first-of-type {
+        display: block !important; /* 説明文を表示 */
+        text-align: center !important; /* 中央揃え */
+        margin-bottom: 2rem !important; /* 下マージンを調整 */
+        font-size: 1rem !important; /* モバイル用にサイズ調整 */
+        color: #6b7280 !important; /* 文字色を調整 */
+        line-height: 1.5 !important; /* 行間を調整 */
+    }
+    
+    /* Progressセクションのコンテナ */
+    #progress .container {
+        max-width: 100% !important; /* 最大幅を100%に */
+        padding: 0 !important; /* パディングをリセット */
+        margin: 0 !important; /* マージンをリセット */
+    }
+    
+    /* Progressセクションのグリッドレイアウト */
+    #progress .grid {
+        display: grid !important; /* グリッドを強制表示 */
+        grid-template-columns: 1fr !important; /* 1列に変更 */
+        gap: 1.5rem !important; /* gap-8 → 1.5rem に縮小 */
+        padding: 0 !important; /* パディングをリセット */
+        margin: 0 !important; /* マージンをリセット */
+    }
+    
+    /* Progressセクション内の各項目 - カードなしでシンプルに */
+    #progress .grid > div {
+        background: none !important; /* 背景なし */
+        padding: 0 !important; /* パディングなし */
+        border: none !important; /* ボーダーなし */
+        text-align: center !important; /* テキストを中央揃え */
+        box-shadow: none !important; /* シャドウなし */
+        transition: none !important; /* 変化なし */
+    }
+    
+    /* Progressセクション内の各項目のホバー効果 - なし */
+    #progress .grid > div:hover {
+        transform: none !important; /* 変形なし */
+        box-shadow: none !important; /* シャドウなし */
+        border-color: transparent !important; /* ボーダーなし */
+    }
+    
+    /* Progressセクション内の見出し */
+    #progress .grid h3 {
+        font-size: 1.25rem !important; /* text-lg → 1.25rem に調整 */
+        font-weight: 600 !important; /* font-bold → 600 に調整 */
+        color: #374151 !important; /* 文字色を調整 */
+        margin-bottom: 0.5rem !important; /* 下マージンを追加 */
+        line-height: 1.4 !important; /* 行間を調整 */
+        padding: 0 !important; /* パディングなし */
+    }
+    
+    /* Progressセクション内のテキスト */
+    #progress .grid p {
+        font-size: 1.125rem !important; /* text-base → 1.125rem に調整 */
+        color: #6b7280 !important; /* 文字色を調整 */
+        line-height: 1.5 !important; /* 行間を調整 */
+        margin: 0 !important; /* マージンをリセット */
+        padding: 0 !important; /* パディングなし */
+    }
+}
+
+/* さらに小さいスマホ（480px以下）での調整 */
+@media (max-width: 480px) {
+    /* Progressセクション全体のスタイル */
+    #progress {
+        padding: 1.5rem 0.75rem !important; /* 2rem 1rem → 1.5rem 0.75rem にさらに調整 */
+    }
+    
+    /* Progressセクションのヘッダー */
+    #progress h2 {
+        font-size: 1.75rem !important; /* 2rem → 1.75rem にさらに調整 */
+        margin-bottom: 0.75rem !important; /* 1rem → 0.75rem にさらに調整 */
+    }
+    
+    /* Progressセクションの説明文 */
+    #progress p:first-of-type {
+        font-size: 0.875rem !important; /* 1rem → 0.875rem にさらに調整 */
+        margin-bottom: 1.5rem !important; /* 2rem → 1.5rem にさらに調整 */
+    }
+    
+    /* Progressセクションのグリッドレイアウト */
+    #progress .grid {
+        gap: 1.25rem !important; /* 1.5rem → 1.25rem にさらに調整 */
+    }
+    
+    /* Progressセクション内の見出し */
+    #progress .grid h3 {
+        font-size: 1.125rem !important; /* 1.25rem → 1.125rem にさらに調整 */
+        margin-bottom: 0.375rem !important; /* 0.5rem → 0.375rem にさらに調整 */
+    }
+    
+    /* Progressセクション内のテキスト */
+    #progress .grid p {
+        font-size: 1rem !important; /* 1.125rem → 1rem にさらに調整 */
+    }
+} 
+
+/* Cultureセクションの画像切り替え関連のスタイルを削除 */
+/* 以下のスタイルは削除してください：
+.culture-image-container
+.culture-image
+.culture-nav-buttons
+.culture-nav-button
+.culture-nav-button.active
+*/
+
+/* シンプルな画像表示のみ */
+#about img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+} 
+
+/* Cultureセクションのロゴ画像サイズ調整 */
+#about .md\\:w-1\\/2:nth-child(2) img {
+    height: 8rem; /* h-32 = 128px */
+    width: auto;
+    margin: 1rem auto;
+    opacity: 0.8;
+    display: block;
+}
+
+/* モバイル版でのロゴサイズ調整 */
+@media (max-width: 768px) {
+    #about .md\\:w-1\\/2:nth-child(2) img {
+        height: 6rem; /* モバイルではさらに小さく */
+    }
+} 
+
+/* Cultureセクションの新しいデザイン */
+#about {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+#about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.02) 0%, rgba(147, 197, 253, 0.02) 100%);
+    pointer-events: none;
+}
+
+#about .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* セクションヘッダーのスタイル */
+#about h2 {
+    background: linear-gradient(135deg, #6b7280 0%, #9ca3af 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 画像セクションのスタイル */
+#about .lg\\:w-1\\/2:first-child {
+    position: relative;
+}
+
+#about .lg\\:w-1\\/2:first-child img {
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transition: all 0.5s ease;
+}
+
+#about .lg\\:w-1\\/2:first-child:hover img {
+    transform: scale(1.02);
+    box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.3);
+}
+
+/* 右側コンテンツのスタイル */
+#about .lg\\:w-1\\/2:last-child {
+    padding: 2rem 0;
+}
+
+#about .lg\\:w-1\\/2:last-child h3 {
+    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+
+/* ロゴのスタイル */
+#about .lg\\:w-1\\/2:last-child img {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    transition: all 0.3s ease;
+}
+
+#about .lg\\:w-1\\/2:last-child img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.15));
+}
+
+/* 説明文のスタイル */
+#about .lg\\:w-1\\/2:last-child p {
+    color: #4b5563;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* モバイル版での調整 */
+@media (max-width: 1024px) {
+    #about .lg\\:w-1\\/2:first-child {
+        margin-bottom: 2rem;
+    }
+    
+    #about .lg\\:w-1\\/2:last-child {
+        text-align: center;
+        padding: 1rem 0;
+    }
+    
+    #about h2 {
+        font-size: 3rem;
+    }
+    
+    #about .lg\\:w-1\\/2:last-child h3 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #about {
+        padding: 3rem 1rem;
+    }
+    
+    #about h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    #about .lg\\:w-1\\/2:last-child h3 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    #about .lg\\:w-1\\/2:last-child img {
+        height: 5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    #about .lg\\:w-1\\/2:last-child p {
+        font-size: 0.875rem;
+        padding: 0 0.5rem;
+    }
+} 
+
+/* Cultureセクションのロゴサイズを確実に設定 */
+#about .lg\\:w-1\\/2:last-child img {
+    width: 1rem !important; /* w-4 = 16px */
+    height: 1rem !important; /* h-4 = 16px */
+    opacity: 0.9 !important;
+    margin-bottom: 2rem !important;
+    display: block !important;
+    object-fit: contain !important; /* 画像の比率を保持 */
+} 
+
+/* モバイル版でのロゴサイズ調整 */
+@media (max-width: 768px) {
+    #about .lg\\:w-1\\/2:last-child img {
+        width: 0.875rem !important; /* モバイルではさらに小さく */
+        height: 0.875rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+} 
+
+/* Cultureセクションのロゴサイズを強制的に設定 */
+#about .lg\\:w-1\\/2:last-child img,
+#about img[src*="logo.png"] {
+    width: 160px !important;
+    height: 160px !important;
+    max-width: 160px !important;
+    max-height: 160px !important;
+    min-width: 160px !important;
+    min-height: 160px !important;
+    opacity: 0.9 !important;
+    margin-bottom: 2rem !important;
+    display: block !important;
+    object-fit: contain !important;
+    box-sizing: border-box !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* モバイル版でのロゴサイズ調整 */
+@media (max-width: 768px) {
+    #about .lg\\:w-1\\/2:last-child img,
+    #about img[src*="logo.png"] {
+        width: 140px !important;
+        height: 140px !important;
+        max-width: 140px !important;
+        max-height: 140px !important;
+        min-width: 140px !important;
+        min-height: 140px !important;
+        margin-bottom: 1.5rem !important;
+    }
+} 
+
+/* Tailwind CSSのクラスを上書き */
+#about .w-40,
+#about .h-40 {
+    width: 160px !important;
+    height: 160px !important;
+} 
+
+/* ヘッダーの翻訳ボタンのデザイン改善 */
+header #translate-button {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3) !important;
+    transition: all 0.3s ease !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.025em !important;
+}
+
+header #translate-button:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%) !important;
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.4) !important;
+}
+
+header #translate-button:active {
+    transform: translateY(0) scale(1.02) !important;
+}
+
+/* 翻訳ボタンのアイコンとテキストのスタイル */
+header #translate-button i {
+    transition: transform 0.3s ease !important;
+}
+
+header #translate-button:hover i:last-child {
+    transform: rotate(180deg) !important;
+} 
+
+/* セクションヘッダーの統一スタイル */
+section h2 {
+    font-size: 2.25rem !important; /* text-4xl = 36px */
+    line-height: 1.1 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.025em !important;
+}
+
+@media (min-width: 640px) {
+    section h2 {
+        font-size: 3rem !important; /* text-5xl = 48px */
+    }
+}
+
+@media (min-width: 1024px) {
+    section h2 {
+        font-size: 3.75rem !important; /* text-6xl = 60px */
+    }
+} 
+
+/* セクション説明文の統一スタイル */
+section h2 + p {
+    font-size: 1.125rem !important; /* text-lg = 18px */
+    line-height: 1.6 !important;
+    font-weight: 500 !important;
+    color: #6b7280 !important;
+    margin-bottom: 1rem !important;
+}
+
+@media (min-width: 640px) {
+    section h2 + p {
+        font-size: 1.25rem !important; /* text-xl = 20px */
+    }
+}
+
+@media (min-width: 1024px) {
+    section h2 + p {
+        font-size: 1.5rem !important; /* text-2xl = 24px */
+    }
+} 
+
+/* Cultureセクションのロゴを中央配置 */
+#about .lg\\:w-1\\/2:last-child .mb-8 {
+    justify-content: center !important;
+} 
+
+/* Cultureセクションのヘッダーを左揃え */
+#about .text-left {
+    text-align: left !important;
+}
+
+#about .text-left h2,
+#about .text-left p {
+    text-align: left !important;
 } 
