@@ -16,8 +16,8 @@ let slideIndex = 0;
 const mainSlides = document.querySelectorAll('.slideshow-image');
 const slideshowTexts = [
     { title: { en: 'International Exchange BBQ', ja: '国際交流BBQ' }, subtitle: { en: 'Creating opportunities to make friends', ja: '友達をつくるきっかけを創出' } },
-    { title: { en: 'Japanese Culture Exchange', ja: '日本文化交流' }, subtitle: { en: 'Spreading Japanese culture in Brisbane', ja: '日本の文化をブリスベンに広めます。' } },
-    { title: { en: 'Christmas Party', ja: 'クリスマス会' }, subtitle: { en: 'Celebrating special seasons together', ja: '特別な季節をみんなで祝います。' } }
+    { title: { en: 'Japanese Culture Exchange', ja: '日本文化交流' }, subtitle: { en: 'Spreading Japanese culture in Brisbane', ja: '日本の文化をブリスベンに。' } },
+    { title: { en: 'Christmas Party', ja: 'クリスマス会' }, subtitle: { en: 'Celebrating special seasons', ja: '特別な季節をみんなで祝福。' } }
 ];
 const slideshowTitleElement = document.getElementById('slideshow-title');
 const slideshowSubtitleElement = document.getElementById('slideshow-subtitle');
@@ -113,8 +113,8 @@ const translations = {
         'html-lang': 'ja'
     },
     en: {
-        'translate-button': '日本語',
-        'mobile-translate-button': '日本語',
+        'translate-button': 'japanese',
+        'mobile-translate-button': 'japanese',
         'html-lang': 'en'
     }
 };
@@ -164,14 +164,9 @@ function toggleLanguage() {
 translateButton.addEventListener('click', toggleLanguage);
 mobileTranslateButton.addEventListener('click', toggleLanguage);
 
-// ページ読み込み時に英語で初期化
+// ページ読み込み時の初期化
 document.addEventListener('DOMContentLoaded', () => {
-    translatePage('en');
-}); 
-
-// ページ読み込み時にCULTURE画像の初期化
-document.addEventListener('DOMContentLoaded', () => {
-    // 既存の初期化処理
+    // 翻訳機能の初期化
     translatePage('en');
     
     // CULTURE画像の初期化
