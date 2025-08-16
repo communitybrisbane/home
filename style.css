@@ -1161,3 +1161,102 @@ section h2 + p {
 #about .text-left p {
     text-align: left !important;
 } 
+
+/* モバイル版でContactとRecruitの題名と副題を表示 */
+@media (max-width: 768px) {
+    /* ContactとRecruitの題名を表示 */
+    #recruit h2 {
+        display: block !important;
+        font-size: 2rem !important;
+        text-align: center !important;
+        margin-bottom: 1rem !important;
+        color: #6b7280 !important;
+        text-transform: uppercase !important;
+        font-weight: 700 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* ContactとRecruitの副題を表示 */
+    #recruit h2 + p,
+    #recruit .text-base.text-gray-600.mb-8 {
+        display: block !important;
+        font-size: 1rem !important;
+        text-align: center !important;
+        margin-bottom: 1.5rem !important;
+        color: #6b7280 !important;
+        font-weight: 500 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* すべての副題要素を強制表示 */
+    #recruit p[data-en*="Team Management"],
+    #recruit p[data-en*="Contact Us"] {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* グリッドレイアウトを調整 */
+    #recruit .grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        padding: 0 1rem !important;
+    }
+    
+    /* 各カラムの高さを調整 */
+    #recruit .h-96 {
+        height: auto !important;
+        min-height: 350px !important;
+    }
+    
+    /* テキストコンテンツのパディングを調整 */
+    #recruit .p-8 {
+        padding: 1.5rem !important;
+    }
+    
+    /* 背景の透明度を調整してテキストを見やすく */
+    #recruit .bg-opacity-80 {
+        background-color: rgba(255, 255, 255, 0.9) !important;
+    }
+}
+
+/* さらに小さいモバイルサイズでの調整 */
+@media (max-width: 480px) {
+    #recruit h2 {
+        font-size: 1.75rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    #recruit h2 + p,
+    #recruit .text-base.text-gray-600.mb-8 {
+        font-size: 0.875rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    #recruit .p-8 {
+        padding: 1rem !important;
+    }
+    
+    #recruit .h-96 {
+        min-height: 300px !important;
+    }
+}
+
+/* 超小さいモバイルサイズでの調整 */
+@media (max-width: 360px) {
+    #recruit h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    #recruit h2 + p,
+    #recruit .text-base.text-gray-600.mb-8 {
+        font-size: 0.75rem !important;
+    }
+    
+    #recruit .p-8 {
+        padding: 0.75rem !important;
+    }
+} 
