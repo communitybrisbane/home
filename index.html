@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community_Brisbane</title>
+    <!-- Tailwind CSS CDNを読み込み -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome アイコンを読み込み -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 外部スタイルシートの読み込み -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- ヘッダー -->
+    <header class="w-full bg-white py-4 shadow-sm fixed top-0 left-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Community Brisbaneを左寄せに -->
+            <div class="flex items-center space-x-2">
+                <img src="images/logo.png" alt="Community Brisbane Logo" class="h-8 w-auto">
+                <a href="#" class="text-xl font-bold">Community_Brisbane</a>
+            </div>
+            <!-- ナビゲーションリンクと翻訳ボタンを右寄せに -->
+            <div class="flex items-center space-x-6">
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#events" class="hover:text-blue-500">events</a>
+                    <a href="#progress" class="hover:text-blue-500">progress</a>
+                    <a href="#recruit" class="hover:text-blue-500">contact</a>
+                </nav>
+                <button id="translate-button" class="bg-white text-gray-800 border border-gray-800 px-4 py-2 rounded-full hover:bg-gray-800 hover:text-white transition-colors duration-300">日本語</button>
+                <button id="menu-button" class="md:hidden text-2xl">☰</button>
+            </div>
+        </div>
+        <!-- モバイルメニュー -->
+        <div id="mobile-menu" class="hidden md:hidden w-full bg-white text-center py-4 space-y-4 shadow-lg">
+            <a href="#events" class="block py-2 hover:bg-gray-100">events</a>
+            <a href="#progress" class="block py-2 hover:bg-gray-100">progress</a>
+            <a href="#contact" class="block py-2 hover:bg-gray-100">contact</a>
+            <button class="w-3/4 mx-auto bg-white text-gray-800 border border-gray-800 px-6 py-2 rounded-full hover:bg-gray-800 hover:text-white transition-colors duration-300" id="mobile-translate-button">日本語</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- メインビジュアルセクション（スライドショー） -->
+        <section class="slideshow-container">
+            <div class="slideshow-image-container">
+                <img src="images/home-1.jpeg" alt="スライドショー画像1" class="slideshow-image active">
+                <img src="images/home-2.jpg" alt="スライドショー画像2" class="slideshow-image">
+                <img src="images/home-3.jpg" alt="スライドショー画像3" class="slideshow-image">
+            </div>
+            <div class="slideshow-overlay">
+                <div class="slideshow-text-content">
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-800 leading-tight mb-4 animate-slide-down">make your days count.</h1>
+                    <p class="text-lg sm:text-xl lg:text-2xl text-gray-700 font-medium animate-slide-down-delay">ブリスベン生活を思いっきり楽しむ。</p>
+                </div>
+            </div>
+            <div class="slideshow-text-container">
+                <h3 id="slideshow-title" class="text-xl sm:text-2xl font-bold">国際交流BBQ</h3>
+                <p id="slideshow-subtitle" class="text-sm sm:text-base text-gray-600 mt-2">友達をつくるきっかけを創出</p>
+            </div>
+        </section>
+
+        <!-- CULTUREセクション -->
+        <section id="about" class="py-16 md:py-24">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-gray-500 mb-2">CULTURE</h2>
+                <p class="text-base text-gray-600 mb-8">community_Brisbaneとは</p>
+                <div class="flex flex-col md:flex-row items-start md:space-x-8">
+                    <div class="md:w-1/2 culture-image-container">
+                        <!-- 画像のプレースホルダー -->
+                        <img src="images/culture-begin.jpg" alt="カルチャー画像1" class="w-full h-auto rounded-lg active">
+                        <img src="images/culrure-drink.jpeg" alt="カルチャー画像2" class="w-full h-auto rounded-lg absolute top-0 left-0">
+                        <img src="images/cluture-organizer.jpeg" alt="カルチャー画像3" class="w-full h-auto rounded-lg absolute top-0 left-0">
+                        <img src="images/culture-maturi.jpg" alt="カルチャー画像4" class="w-full h-auto rounded-lg absolute top-0 left-0">
+                        <img src="images/culture-sports.jpeg" alt="カルチャー画像5" class="w-full h-auto rounded-lg absolute top-0 left-0">
+
+                        <button class="nav-btn prev-btn" onclick="prevImage()">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                            </svg>
+                        </button>
+                        <button class="nav-btn next-btn" onclick="nextImage()">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5 15.75 12l-7.5 7.5" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="md:w-1/2 mt-8 md:mt-0">
+                        <img src="images/logo.png" alt="Community Brisbane Logo" class="h-48 w-auto mx-auto my-4 opacity-80 block">
+                        <h3 class="text-3xl font-bold">make your days count.</h3>
+                        <p class="mt-4 text-base text-gray-600">
+                            Community_Brisbaneは、brisbaneCBD周辺にて国際交流イベントを開催するコミュニティです。
+                            brisbaneでの生活を楽しく、新しい友人を作るきっかけを創造し、海外での挑戦に対するハードルを下げることを目指しています。
+                            私たちは、誰もが気軽に交流できる場を提供します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENTSセクション -->
+        <section id="events" class="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+            <div class="container mx-auto px-6">
+                <!-- セクションヘッダー -->
+                <div class="mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">EVENTS</h2>
+                    <p class="text-base text-gray-600">主な活動内容</p>
+                </div>
+                
+                <!-- イベント項目1: 国際交流（画像左・文章右） -->
+                <div class="flex flex-col lg:flex-row items-center gap-12 mb-20">
+                    <div class="lg:w-1/2">
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                            <img src="images/events-international.jpeg" alt="国際交流イベント" class="w-full h-80 object-cover">
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-6">国際交流</h3>
+                        <p class="text-base text-gray-600 leading-relaxed">
+                            ブリスベンに住む様々な国籍の人々と交流できるイベントを定期的に開催しています。
+                            言語や文化の壁を越え、新しいつながりを見つける絶好の機会です。
+                            誰もが楽しめるよう、様々なアクティビティを用意しています。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- イベント項目2: 日本文化（文章左・画像右） -->
+                <div class="flex flex-col lg:flex-row-reverse items-center gap-12 mb-20">
+                    <div class="lg:w-1/2">
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                            <img src="images/events-onigiri.JPG" alt="日本文化イベント" class="w-full h-80 object-cover">
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-6">日本文化交流</h3>
+                        <p class="text-base text-gray-600 leading-relaxed">
+                            日本の文化に触れることができるイベントを開催し、日本の魅力を発信しています。
+                            書道、アニメ、料理、夏祭りなど、様々なテーマでイベントを企画しています。
+                            日本の文化をブリスベンに広めることを目指しています。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- イベント項目3: ワーホリ支援（画像左・文章右） -->
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2">
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                            <img src="images/events-wh.jpg" alt="ワーホリ支援イベント" class="w-full h-80 object-cover">
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-6">ワーホリ支援</h3>
+                        <p class="text-base text-gray-600 leading-relaxed">
+                            ワーキングホリデーでブリスベンに来た方を対象に、生活情報や仕事探しのアドバイスなど、様々な支援を行っています。
+                            現地の情報交換や相談ができる場を提供し、安心して海外生活を送れるようサポートします。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRESSセクション -->
+        <section id="progress" class="py-16 md:py-24">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-gray-500 mb-2">PROGRESS</h2>
+                <p class="text-base text-gray-600 mb-8">これまでの歩み</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div>
+                        <h3 class="text-lg font-bold">設立日</h3>
+                        <p class="text-base">2024/8/25</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold">イベント数</h3>
+                        <p class="text-base">累計30回以上</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold">延べ参加者数</h3>
+                        <p class="text-base">800人以上</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold">人気イベント</h3>
+                        <p class="text-base">BBQ、making Onigiri</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MESSAGEセクション -->
+        <section class="py-16 md:py-24 relative overflow-hidden message-section-container">
+            <img src="images/massage.JPG" alt="設立者のメッセージ画像" class="message-section-image">
+            <div class="message-section-overlay"></div>
+            <div class="container mx-auto px-4 relative z-10 text-left">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-gray-500 mb-2">MESSAGE</h2>
+                <p class="text-base text-gray-600 mb-8">設立者の想い</p>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold">ブリスベンでの日々を、<br>もっと特別に。</h3>
+                    <p class="mt-4 text-base text-black-600">
+                        このコミュニティを始めたのは、私自身が海外で友達をたくさん作り、精一杯楽しみたい想いからです。
+                        ワーホリでBrisbaneに来て何もわからずはじめたこの活動がたくさんの友達に支えられてここまできました。
+                        Community Brisbaneが、あなたの「今日を最高の一日」にするきっかけになれば、これ以上嬉しいことはありません。
+                        ぜひ一度足を運んでイベントに来てみてください。新たな発見と大切な友達に出会えるかもしれません。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECRUIT & CONTACTセクション -->
+        <section id="recruit" class="py-16 md:py-24 recruit-contact-section">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- 左側のカラム -->
+                    <div class="relative overflow-hidden rounded-lg">
+                        <img src="images/team.jpg" alt="運営募集画像" class="absolute inset-0 w-full h-full object-cover z-0">
+                        <div class="p-8 relative z-10 bg-white bg-opacity-80 h-full flex flex-col justify-center items-center text-center">
+                            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-gray-500 mb-2">RECRUIT</h2>
+                            <p class="text-base text-gray-600 mb-8">チーム運営</p>                           
+                            <p class="mt-4 text-base text-gray-600">
+                                私たちと一緒にCBを盛り上げてくれる仲間を募集しています。<br>
+                                あなたのアイディアを活かし、イベントの企画や運営に携わりませんか？<br>
+                                海外でなにか挑戦してみたい、その思いがあればぜひDMください。
+                            </p>
+                            <a href="https://local-opossum-a14.notion.site/ebd/20a118fd4c9a8056be30e2382e9ee2d9" target="_blank" class="mt-8 inline-block bg-white text-gray-800 border border-gray-800 px-6 py-3 rounded-full hover:bg-gray-800 hover:text-white transition-colors duration-300">詳細を見る →</a>
+                        </div>
+                    </div>
+                    <!-- 右側のカラム -->
+                    <div class="relative overflow-hidden rounded-lg">
+                        <img src="images/contact.JPEG" alt="コンタクト画像" class="absolute inset-0 w-full h-full object-cover z-0">
+                        <div class="p-8 relative z-10 bg-white bg-opacity-80 h-full flex flex-col justify-center items-center text-center">
+                            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-gray-500 mb-2">CONTACT</h2>
+                            <p class="text-base text-gray-600 mb-8">お問い合わせ</p>
+                            <p class="mt-4 text-base text-gray-600">
+                                ご質問、コラボ依頼、スポンサーなどのご連絡は、<br>
+                                InstagramのDMにて承っております。<br>
+                                お気軽にご連絡ください。
+                      
+                            </p>
+                            <a href="https://www.instagram.com/community_brisbane?igsh=MWxmeW1vZjRsdDZ4Zw%3D%3D&utm_source=qr" target="_blank" class="mt-8 inline-block bg-white text-gray-800 border border-gray-800 px-6 py-3 rounded-full hover:bg-gray-800 hover:text-white transition-colors duration-300">Instagram DM →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- フッター -->
+        <footer class="bg-gray-800 text-white py-4">
+            <div class="container mx-auto px-4 text-center">
+                <p class="text-sm">&copy; 2024 Community Brisbane. All rights reserved.</p>
+            </div>
+        </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
